@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { navItems } from "./data";
-import { Button } from "../Button";
+import { Button } from "../../common/Button";
 import { FaGithub } from "react-icons/fa";
-import logo from "../../assets/logo-desktop.svg";
+import logo from "@/assets/logo-desktop.svg";
 import * as S from "./styles";
 
 export const Header = () => {

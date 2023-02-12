@@ -10,6 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <AuthContextProvider>
       <ThemeProvider theme={{ mixins: mixins }}>
         <GlobalStyles />
+
         <Component {...pageProps} />
       </ThemeProvider>
     </AuthContextProvider>
