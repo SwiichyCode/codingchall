@@ -11,5 +11,11 @@ interface StyledButtonProps {
 }
 
 export const StyledButton = styled(ButtonBase)<StyledButtonProps>`
+  font-weight: 700;
+  font-size: 1.5rem;
+  border-radius: 10rem;
+  color: var(--color-white);
+  text-transform: uppercase;
   background-color: ${({ bgColor }) => bgColor};
+  padding: 1.25rem 2.5rem;
 `;

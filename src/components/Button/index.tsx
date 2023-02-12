@@ -9,14 +9,21 @@ type VAR = `var(--${string})`;
 
 interface ButtonProps {
   text: string;
-  icon: React.ReactElement<IconType>;
+  icon?: React.ReactElement<IconType>;
   bgColor?: RGB | RGBA | HEX | VAR;
   role?: string;
+  onClick?: () => void;
 }
 
-export const Button = ({ text, icon, bgColor, role }: ButtonProps) => {
+export const Button = ({
+  text,
+  icon,
+  bgColor,
+  role,
+  ...props
+}: ButtonProps) => {
   return (
-    <S.StyledButton bgColor={bgColor} role={role}>
+    <S.StyledButton bgColor={bgColor} role={role} {...props}>
       <span>{text}</span> {icon}
     </S.StyledButton>
   );

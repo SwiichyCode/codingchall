@@ -20,5 +20,6 @@ export const GlobalStyles = createGlobalStyle`
 
     :root {
         --color-black: #1C2022;
+        --color-white: #FFFFFF;
     }
 `;
