@@ -18,7 +18,6 @@ export const StyledButton = styled.button<StyledButtonProps>`
   text-transform: uppercase;
   background-color: ${({ bgColor }) => bgColor};
   ${({ theme }) => theme.mixins.flexCenter};
-  background: transparent;
   font-family: "Barlow", sans-serif;
   font-style: italic;
   border: none;

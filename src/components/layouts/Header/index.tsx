@@ -5,12 +5,27 @@ import { Button } from "../../common/Button";
 import { FaGithub } from "react-icons/fa";
 import logo from "@/assets/logo-desktop.svg";
 import * as S from "./styles";
+import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/router";
 
 interface HeaderProps {
   children: React.ReactNode;
 }
 
 export const Header = ({ children }: HeaderProps) => {
+  const { logOut } = useAuth();
+  const router = useRouter();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      router.push("/login");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <Fragment>
       <S.Container role="banner">
@@ -26,11 +41,22 @@ export const Header = ({ children }: HeaderProps) => {
                   <a href={url}>{name}</a>
                 </li>
               ))}
+
+              <li>
+                <Link href="/login">login</Link>
+              </li>
             </ul>
             <Button
               text={"login with github "}
               icon={<FaGithub />}
-              bgColor="var(--color-black)"
+              bgColor="#1C2022"
+              color="var(--color-white)"
+            />
+            <Button
+              text={"logout"}
+              bgColor="#1C2022"
+              color="var(--color-white)"
+              onClick={handleLogOut}
             />
           </S.Nav>
         </S.Navbar>

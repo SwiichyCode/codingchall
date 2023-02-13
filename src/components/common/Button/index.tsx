@@ -11,14 +11,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   icon?: React.ReactElement<IconType>;
   bgColor?: RGB | RGBA | HEX | VAR;
+  color?: RGB | RGBA | HEX | VAR;
 }
 
-export const Button = ({
-  text,
-  icon,
-
-  ...props
-}: ButtonProps) => {
+export const Button = ({ text, icon, ...props }: ButtonProps) => {
   return (
     <S.StyledButton {...props}>
       <span>{text}</span> {icon}

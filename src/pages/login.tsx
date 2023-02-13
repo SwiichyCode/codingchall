@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { Signup } from "@/components/services/Auth/Signup";
+import { Signin } from "@/components/services/Auth/Signin";
 
-export default function Home() {
+export default function Login() {
   return (
     <Container>
       <Body>
-        <Signup />
+        <Signin />
       </Body>
     </Container>
   );
