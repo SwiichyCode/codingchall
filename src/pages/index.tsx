@@ -1,12 +1,10 @@
 import React from "react";
-import { Header } from "@/components/layouts/Header";
 import styled from "styled-components";
 import { Signup } from "@/components/services/Auth/Signup";
 
 export default function Home() {
   return (
     <Container>
-      <Header />
       <Body>
         <Signup />
       </Body>

@@ -1,18 +1,17 @@
 import type { AppProps } from "next/app";
+import { CombinedProviders } from "@/providers/CombinedProviders";
 import { GlobalStyles } from "@/styles/globalStyles";
-import { ThemeProvider } from "styled-components";
-import { mixins } from "@/styles/mixins";
+import { Header } from "@/components/layouts/Header";
 import "../styles/main.css";
-import { AuthContextProvider } from "@/context/AuthContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <AuthContextProvider>
-      <ThemeProvider theme={{ mixins: mixins }}>
-        <GlobalStyles />
+    <CombinedProviders>
+      <GlobalStyles />
 
+      <Header>
         <Component {...pageProps} />
-      </ThemeProvider>
-    </AuthContextProvider>
+      </Header>
+    </CombinedProviders>
   );
 }
