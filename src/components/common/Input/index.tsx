@@ -1,12 +1,12 @@
 import React from "react";
 import * as S from "./styles";
 
-interface InputProps {
-  ref?: React.Ref<HTMLInputElement>;
-  placeholder?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  register: any;
+  label: string;
+  required?: boolean;
 }
 
-export const Input = ({ ref, ...props }: InputProps) => {
-  return <S.StyledInput ref={ref} type="search" {...props} />;
-};
+export const Input = ({ register, label, required, ...props }: InputProps) => (
+  <S.StyledInput {...register(label, { required })} {...props} />
+);

@@ -1,5 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../config/firebase";
 
 interface UserType {
@@ -28,8 +31,12 @@ export const AuthContextProvider = ({ children }: any) => {
     return unsubscribe;
   }, []);
 
+  const signUp = (email: string, password: string) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
   return (
-    <AuthContext.Provider value={{ user }}>
+    <AuthContext.Provider value={{ user, signUp }}>
       {loading ? null : children}
     </AuthContext.Provider>
   );

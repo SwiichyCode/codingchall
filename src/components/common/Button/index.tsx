@@ -7,23 +7,20 @@ type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
 type HEX = `#${string}`;
 type VAR = `var(--${string})`;
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   icon?: React.ReactElement<IconType>;
   bgColor?: RGB | RGBA | HEX | VAR;
-  role?: string;
-  onClick?: () => void;
 }
 
 export const Button = ({
   text,
   icon,
-  bgColor,
-  role,
+
   ...props
 }: ButtonProps) => {
   return (
-    <S.StyledButton bgColor={bgColor} role={role} {...props}>
+    <S.StyledButton {...props}>
       <span>{text}</span> {icon}
     </S.StyledButton>
   );
