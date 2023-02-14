@@ -8,5 +8,5 @@ interface UserLayoutProps {
 export const UserLayout = ({ children }: UserLayoutProps) => {
   const { user } = useAuth();
 
-  return user.uid && { children };
+  return user.uid && children;
 };

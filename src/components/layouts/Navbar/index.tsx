@@ -31,8 +31,8 @@ export const Navbar = () => {
 
       <S.Nav>
         <ul>
-          {navItems.map(({ url, name, className }) => (
-            <li key={name} className={className}>
+          {navItems.map(({ url, name }) => (
+            <li key={name}>
               <a href={url}>{name}</a>
             </li>
           ))}
@@ -47,14 +47,15 @@ export const Navbar = () => {
           bgColor="#1C2022"
           color="var(--color-white)"
         />
-        {/* <UserLayout> */}
-        <Button
-          text={"logout"}
-          bgColor="#1C2022"
-          color="var(--color-white)"
-          onClick={handleLogOut}
-        />
-        {/* </UserLayout> */}
+
+        <UserLayout>
+          <Button
+            text={"logout"}
+            bgColor="#1C2022"
+            color="var(--color-white)"
+            onClick={handleLogOut}
+          />
+        </UserLayout>
       </S.Nav>
     </S.Navbar>
   );

@@ -18,6 +18,7 @@ export const Signup = () => {
   const { register, handleSubmit } = methods;
   const { signUp } = useAuth();
   const router = useRouter();
+
   const onSubmit = async (data: any) => {
     try {
       await signUp(data.email, data.password);

@@ -31,7 +31,7 @@ export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
 
   useEffect(() => {
     if (!user.uid) {
-      delayedRedirect("/signin");
+      delayedRedirect("/login");
     }
   }, [delayedRedirect, user]);
 
