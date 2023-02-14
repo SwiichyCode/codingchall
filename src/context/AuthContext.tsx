@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  browserLocalPersistence,
 } from "firebase/auth";
 import { auth } from "../config/firebase";
 
@@ -37,8 +38,9 @@ export const AuthContextProvider = ({ children }: any) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const logIn = (email: string, password: string) => {
-    return signInWithEmailAndPassword(auth, email, password);
+  const logIn = async (email: string, password: string) => {
+    await signInWithEmailAndPassword(auth, email, password);
+    auth.setPersistence(browserLocalPersistence);
   };
 
   const logOut = async () => {
